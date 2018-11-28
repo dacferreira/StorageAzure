@@ -1,0 +1,23 @@
+﻿@model Cloud_Azure.Models.StorageModel
+
+@{
+    ViewBag.Title = "Index";
+    var url = string.Empty;
+
+    url = $"{Model.UrlArquivo}";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<img src="@Model.UrlArquivo" title="@Model.NomeArquivo" />
+
+@*<iframe src="@url" style="width:718px; height:700px;" frameborder="0"></iframe>*@
+
+<object data="@url" type="application/pdf" width="750px" height="750px">
+    <embed src="@url" type="application/pdf">
+    <p>This browser does not support PDFs. Please download the PDF to view it: <a href="@url">Download PDF</a>.</p>
+    </embed>
+</object>
